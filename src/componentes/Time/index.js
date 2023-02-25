@@ -1,25 +1,18 @@
-import Colaborador from "../Colaborador";
-import "./index.css";
+import Colaborador from '../Colaborador'
+import './Time.css'
 
 const Time = (props) => {
-  const csstime = { backgroundColor: props.corSecundaria };
-  const cssh3 = { borderColor: props.corPrimaria };
+    const css = { backgroundColor: props.corSecundaria }
 
-  return (
-    (props.colaboradores.lenght > 0) ? <section className="time" style={csstime}>
-      <h3 style={cssh3}>{props.nome}</h3>
-      <div className="colaboradores">
-        {props.colaboradores.map((colaborador) => (
-          <Colaborador
-            corDeFundo={props.codPrimaria}
-            nome={colaborador.nome}
-            cargo={colaborador.cargo}
-            imagem={colaborador.imagem}
-          />
-        ))}
-      </div>
-    </section> : ''
-  )
+    return (
+        (props.colaboradores.length > 0) ? <section className='time' style={css}>
+            <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
+            <div className='colaboradores'>
+                {props.colaboradores.map( colaborador => <Colaborador corDeFundo={props.corPrimaria} key={colaborador.nome} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem}/> )}
+            </div>
+        </section> 
+        : ''
+    )
 }
 
-export default Time;
+export default Time
